@@ -1,11 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:menu_bar/menu_bar.dart';
 import 'package:recursion_app/aboutpage.dart';
 import 'package:recursion_app/loginpage.dart';
 import 'package:recursion_app/ourTeams.dart';
 import 'package:sizer/sizer.dart';
-// import 'package:sizer/sizer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
