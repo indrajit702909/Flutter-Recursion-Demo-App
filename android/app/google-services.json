@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "664136709310",
+    "project_id": "recursion-app",
+    "storage_bucket": "recursion-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:664136709310:android:be1577ed6c09ce2e281aef",
+        "android_client_info": {
+          "package_name": "com.example.recursion_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2N0eXDc4KCtqNFF7rapnndCK5oT4yxQc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
