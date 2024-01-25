@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:recursion_app/aboutpage.dart';
+import 'package:recursion_app/eventspage.dart';
 import 'package:recursion_app/loginpage.dart';
-import 'package:recursion_app/ourTeams.dart';
+import 'package:recursion_app/ourteam.dart';
 import 'package:sizer/sizer.dart';
 
 class HomePage extends StatefulWidget {
@@ -58,120 +58,125 @@ class _HomePageState extends State<HomePage> {
           centerTitle: true,
           backgroundColor: Colors.black,
         ),
-        body: Padding(
-          padding: EdgeInsets.all(8.sp),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Programming Community of NIT Durgapur',
-                style: TextStyle(
-                  fontSize: 22.sp,
-                  fontWeight: FontWeight.bold,
+        backgroundColor: const Color.fromARGB(255, 13, 17, 14),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.all(8.sp),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Programming Community of NIT Durgapur',
+                  style: TextStyle(
+                    fontSize: 22.sp,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 1.75.h,
-              ),
-              Text(
-                "We are programming community of NIT Durgapur, with focus on improving coding culture institute wide by conducting regular lectures from beginner to advance topics of programming. Our goal is to increase student's participation in inter-collegiate contest like ACM-ICPC and help them get better.",
-                style: TextStyle(
-                  fontSize: 15.sp,
-                  fontFamily: 'fonts/Mukta.zip',
+                SizedBox(
+                  height: 1.75.h,
                 ),
-              ),
-              SizedBox(
-                height: 1.75.h,
-              ),
-              Divider(
-                color: Colors.blueGrey,
-                thickness: 0.3.h,
-              ),
-              SizedBox(
-                height: 1.75.h,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      // Navigate to the sign-in page
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const OurTeams(),
+                Text(
+                  "We are programming community of NIT Durgapur, with focus on improving coding culture institute wide by conducting regular lectures from beginner to advance topics of programming. Our goal is to increase student's participation in inter-collegiate contest like ACM-ICPC and help them get better.",
+                  style: TextStyle(
+                    fontSize: 20.sp,
+                    fontFamily: 'Montserrat',
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(
+                  height: 1.75.h,
+                ),
+                Divider(
+                  color: Colors.blueGrey,
+                  thickness: 0.3.h,
+                ),
+                SizedBox(
+                  height: 1.75.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        // Navigate to the sign-in page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const OurTeams(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        height: 40.h,
+                        width: 45.w,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                            20,
+                          ),
+                          color: Colors.grey[900],
                         ),
-                      );
-                    },
-                    child: Container(
-                      height: 40.h,
-                      width: 45.w,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(
-                          20,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Our Team',
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 20.sp),
+                            ),
+                            SizedBox(
+                              height: 2.h,
+                            ),
+                            Image.asset(
+                              'images/teamicon.png',
+                              color: Colors.white,
+                            ),
+                          ],
                         ),
-                        color: Colors.grey[800],
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Our Team',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 20.sp),
-                          ),
-                          SizedBox(
-                            height: 2.h,
-                          ),
-                          Image.asset(
-                            'images/teamicon.png',
-                            color: Colors.white,
-                          ),
-                        ],
                       ),
                     ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      // Navigate to the sign-in page
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const AboutPage(),
+                    GestureDetector(
+                      onTap: () {
+                        // Navigate to the sign-in page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const EventsPage(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        height: 40.h,
+                        width: 45.w,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                            20,
+                          ),
+                          color: Colors.grey[900],
                         ),
-                      );
-                    },
-                    child: Container(
-                      height: 40.h,
-                      width: 45.w,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(
-                          20,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Our Events',
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 20.sp),
+                            ),
+                            SizedBox(
+                              height: 2.h,
+                            ),
+                            Image.asset(
+                              'images/eventsicon.png',
+                              color: Colors.white,
+                            ),
+                          ],
                         ),
-                        color: Colors.grey[800],
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Our Events',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 20.sp),
-                          ),
-                          SizedBox(
-                            height: 2.h,
-                          ),
-                          Image.asset(
-                            'images/eventsicon.png',
-                            color: Colors.white,
-                          ),
-                        ],
                       ),
                     ),
-                  ),
-                ],
-              )
-            ],
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),

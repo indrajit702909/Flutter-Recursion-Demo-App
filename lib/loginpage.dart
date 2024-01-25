@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:recursion_app/homepage.dart';
 import 'package:recursion_app/signUpPage.dart';
 import 'package:recursion_app/user.dart';
@@ -83,14 +84,13 @@ class _LoginPageState extends State<LoginPage> {
                   ElevatedButton(
                     onPressed: () async {
                       try {
-                        await FirebaseAuth.instance.signInWithEmailAndPassword(
-                            email: emailcontroller.text,
-                            password: passwordcontroller.text);
+                        handleSignIn();
                         Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                                builder: ((context) => HomePage())),
-                            (route) => false);
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => const HomePage())),
+                          (route) => false,
+                        );
                       } catch (e) {
                         print(e);
                       }
@@ -117,7 +117,7 @@ class _LoginPageState extends State<LoginPage> {
                       );
                     },
                     child: const Text(
-                      "Don't have an account? Sign in",
+                      "Don't have an account? Sign Up",
                       style: TextStyle(
                         color: Colors.blue,
                         decoration: TextDecoration.underline,
@@ -131,6 +131,13 @@ class _LoginPageState extends State<LoginPage> {
           ),
         );
       },
+    );
+  }
+
+  Future<void> handleSignIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: emailcontroller.text,
+      password: passwordcontroller.text,
     );
   }
 }

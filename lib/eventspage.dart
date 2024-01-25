@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-class AboutPage extends StatefulWidget {
-  const AboutPage({super.key});
+class EventsPage extends StatefulWidget {
+  const EventsPage({super.key});
 
   @override
-  State<AboutPage> createState() => _TEAMSState();
+  State<EventsPage> createState() => _EventsPageState();
 }
 
-class _TEAMSState extends State<AboutPage> {
+class _EventsPageState extends State<EventsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

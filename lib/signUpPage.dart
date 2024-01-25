@@ -3,6 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:recursion_app/homepage.dart';
+import 'package:recursion_app/loginpage.dart';
 import 'package:recursion_app/user.dart';
 import 'package:sizer/sizer.dart';
 
@@ -18,9 +19,13 @@ class SignUpPage extends StatelessWidget {
     return Sizer(
       builder: (context, orientation, deviceType) {
         return Scaffold(
+          backgroundColor: const Color.fromARGB(255, 13, 17, 14),
           appBar: AppBar(
             title: const Text("Sign Up"),
-            titleTextStyle: TextStyle(color: Colors.white, fontSize: 15.sp),
+            titleTextStyle: TextStyle(
+              color: Colors.white,
+              fontSize: 15.sp,
+            ),
             centerTitle: true,
             backgroundColor: Colors.black,
           ),
@@ -33,23 +38,17 @@ class SignUpPage extends StatelessWidget {
                   SizedBox(
                     height: 20.0.h,
                   ),
-                  // Add your sign-in form or any other content here
-                  // For example, you can add text fields for email and password
                   UserFunctions.customTextField(
                       emailController, 'email', Icons.email, false),
-
                   UserFunctions.customTextField(
-                      passwordController, 'password', Icons.email, true),
+                      passwordController, 'password', Icons.password, true),
                   UserFunctions.customTextField(confirmPasswordController,
-                      'confirm password', Icons.email, true),
+                      'confirm password', Icons.password, true),
                   SizedBox(
-                    height: 20.0.h,
+                    height: 10.0.h,
                   ),
                   ElevatedButton(
                     onPressed: () async {
-                      // Add your sign-in logic here
-                      // You may want to check the credentials, authenticate the user, etc.
-                      // For now, let's just navigate back to the previous page (Login Page)
                       if (passwordController.text ==
                               confirmPasswordController.text &&
                           passwordController.text != "") {
@@ -69,6 +68,26 @@ class SignUpPage extends StatelessWidget {
                       }
                     },
                     child: const Text('Sign up'),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const LoginPage(),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      "Already have an account? Sign In",
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 18,
+                      ),
+                    ),
                   ),
                 ],
               ),
