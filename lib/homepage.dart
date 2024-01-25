@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
           actions: [
             IconButton(
               onPressed: () async {
-                await FirebaseAuth.instance.signOut();
+                handleSignOut();
                 Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(
@@ -181,5 +181,9 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+
+  Future<void> handleSignOut() async {
+    await FirebaseAuth.instance.signOut();
   }
 }

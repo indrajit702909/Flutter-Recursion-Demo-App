@@ -42,7 +42,6 @@ class _OurTeamsState extends State<OurTeams> {
           },
         );
         print('data fetched successfully');
-        print(finalYearPhoto);
       } else {
         print('Failed to fetch data. Status code: ${response.statusCode}');
       }
@@ -91,6 +90,9 @@ class _OurTeamsState extends State<OurTeams> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(
+              height: 0.5.h,
+            ),
             Text(
               'Final Year',
               style: TextStyle(
@@ -104,6 +106,9 @@ class _OurTeamsState extends State<OurTeams> {
                   )
                 ],
               ),
+            ),
+            SizedBox(
+              height: 1.h,
             ),
             Container(
               decoration: BoxDecoration(
@@ -165,6 +170,9 @@ class _OurTeamsState extends State<OurTeams> {
                 },
               ),
             ),
+            SizedBox(
+              height: 1.h,
+            ),
             Text(
               'Third Year',
               style: TextStyle(
@@ -178,6 +186,9 @@ class _OurTeamsState extends State<OurTeams> {
                   )
                 ],
               ),
+            ),
+            SizedBox(
+              height: 1.h,
             ),
             Container(
               decoration: BoxDecoration(
