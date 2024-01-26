@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:recursion_app/auth.dart';
 import 'package:recursion_app/homepage.dart';
 import 'package:recursion_app/signUpPage.dart';
 import 'package:recursion_app/user.dart';
@@ -81,15 +82,9 @@ class _LoginPageState extends State<LoginPage> {
                     height: 5.h,
                   ),
                   ElevatedButton(
-                    onPressed: () async {
+                    onPressed: () {
                       try {
                         handleSignIn();
-                        Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                              builder: ((context) => const HomePage())),
-                          (route) => false,
-                        );
                       } catch (e) {
                         print(e);
                       }
@@ -134,9 +129,21 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> handleSignIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: emailcontroller.text,
-      password: passwordcontroller.text,
-    );
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailcontroller.text,
+        password: passwordcontroller.text,
+      );
+      if (FirebaseAuth.instance.currentUser != null) {
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: ((context) => const HomePage())),
+          (route) => false,
+        );
+      }
+    } on FirebaseAuthException catch (e) {
+      // TODO
+      print(e.code);
+    }
   }
 }
